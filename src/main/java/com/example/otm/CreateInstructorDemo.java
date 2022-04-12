@@ -20,8 +20,8 @@ public class CreateInstructorDemo {
         Session session = sessionFactory.getCurrentSession();
 
         try {
-            Instructor tempInstructor = new Instructor("Susan", "Public", "susan.public@mail.com");
-            InstructorDetail tempInstructorDetail = new InstructorDetail("Java 18", "Guitar");
+            Instructor tempInstructor = new Instructor("Eren", "Eager", "eren.eager@gmail.com");
+            InstructorDetail tempInstructorDetail = new InstructorDetail("Spring", "Tennis");
             tempInstructor.setInstructorDetail(tempInstructorDetail);
 
             session.beginTransaction();

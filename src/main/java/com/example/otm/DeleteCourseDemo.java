@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateCoursesDemo {
+public class DeleteCourseDemo {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = new Configuration()
@@ -22,17 +22,11 @@ public class CreateCoursesDemo {
         try {
             session.beginTransaction();
 
-            int id = 2;
-            Instructor tempInstructor = session.get(Instructor.class, id);
+            int id = 12;
+            Course course = session.get(Course.class, id);
 
-            Course course1 = new Course("Bass Guitar = The Ultimate Guide");
-            Course course2 = new Course("The Tennis Masterclass");
-
-            tempInstructor.add(course1);
-            tempInstructor.add(course2);
-
-            session.save(course1);
-            session.save(course2);
+            System.out.println("Deleting course: " + course);
+            session.delete(course);
 
             session.getTransaction().commit();
 

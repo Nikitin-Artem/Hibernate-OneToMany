@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateCoursesDemo {
+public class GetInstructorCoursesDemo {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = new Configuration()
@@ -25,14 +25,8 @@ public class CreateCoursesDemo {
             int id = 2;
             Instructor tempInstructor = session.get(Instructor.class, id);
 
-            Course course1 = new Course("Bass Guitar = The Ultimate Guide");
-            Course course2 = new Course("The Tennis Masterclass");
-
-            tempInstructor.add(course1);
-            tempInstructor.add(course2);
-
-            session.save(course1);
-            session.save(course2);
+            System.out.println("Instructor: " + tempInstructor);
+            System.out.println("Courses: " + tempInstructor.getCourses());
 
             session.getTransaction().commit();
 
