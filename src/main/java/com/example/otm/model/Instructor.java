@@ -26,7 +26,8 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    @OneToMany(mappedBy = "instructor",
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "instructor",
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     private List<Course> courses;
 
@@ -90,14 +91,8 @@ public class Instructor {
 
     @Override
     public String toString() {
-        return "Instructor{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", instructorDetail=" + instructorDetail +
-                ", courses=" + courses +
-                '}';
+        return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+                + ", instructorDetail=" + instructorDetail + "]";
     }
 
     // Convenience method for bi-directional relationship
